@@ -1,0 +1,94 @@
+package Game;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class GameUI extends JFrame {
+    private static final int MAX_ATTEMPTS = 3;
+    private static int MIN_NUMBER = 1;
+    private static int MAX_NUMBER = 100;
+
+    private JButton guessButton, playAgain;
+    private JLabel leftText, bottomText, attemptText, resultText;
+    private JTextField gussNumber;
+    private JPanel buttonPanel, mainPanel;
+
+    public GameUI() {
+        // Frame properties
+        setTitle("Number Game");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setBounds(300, 100, 800, 400);
+        setLayout(new BorderLayout()); // Set the main layout to BorderLayout
+
+        // Main panel with GridBagLayout
+        mainPanel = new JPanel(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.insets = new Insets(10, 10, 10, 10);
+
+        // Initialize components
+        gussNumber = new JTextField(10);
+        leftText = new JLabel("Enter a number:");
+        guessButton = new JButton("Guess");
+        playAgain = new JButton("Play Again");
+        attemptText = new JLabel("Total Attempts: 0");
+        resultText = new JLabel("Result:");
+        bottomText = new JLabel("Powered By: Ramesh Chamling Rai", JLabel.CENTER);
+
+        bottomText.setBackground(Color.GRAY);
+        bottomText.setOpaque(true); // To make the background color visible
+        bottomText.setForeground(Color.BLACK);
+
+        // Add components to the main panel using GridBagLayout
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.anchor = GridBagConstraints.EAST;
+        mainPanel.add(leftText, gbc);
+
+        gbc.gridx = 1;
+        gbc.gridy = 0;
+        gbc.anchor = GridBagConstraints.WEST;
+        mainPanel.add(gussNumber, gbc);
+
+        // Set up the button panel
+        buttonPanel = new JPanel();
+        buttonPanel.add(guessButton);
+        buttonPanel.add(playAgain);
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        gbc.gridwidth = 2;
+        gbc.anchor = GridBagConstraints.CENTER;
+        mainPanel.add(buttonPanel, gbc);
+
+        // Add attempt and result labels
+        gbc.gridx = 0;
+        gbc.gridy = 2;
+        gbc.gridwidth = 1;
+        gbc.anchor = GridBagConstraints.EAST;
+        mainPanel.add(attemptText, gbc);
+
+        gbc.gridx = 1;
+        gbc.gridy = 2;
+        gbc.anchor = GridBagConstraints.WEST;
+        mainPanel.add(resultText, gbc);
+
+        // Add panels to the frame
+        add(mainPanel, BorderLayout.CENTER); // Add the main panel to the center
+        add(bottomText, BorderLayout.SOUTH); // Add the bottom label to the south
+
+        // Finalize the frame
+        setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        new GameUI(); // Launch the UI
+    }
+}

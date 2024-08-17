@@ -1,0 +1,50 @@
+package Game;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.util.Scanner;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class GameUI extends JFrame {
+	private static final int MAX_ATTEMPTS = 3;
+	private static final Scanner scan = new Scanner(System.in);
+	private static int MIN_NUMBER = 1;
+	private static int MAX_NUMBER = 100;
+
+	private JButton click1, click2;
+	private JLabel  topLabel, bottomText;
+	private JPanel Result;
+	private JTextField numberField;
+
+	GameUI() {
+		setSize(600, 600);
+		setTitle("Number Game");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(300, 100, 800, 400);
+		setLayout(new BorderLayout());
+		
+		
+
+		
+		numberField = new JTextField(20);
+		
+		bottomText = new JLabel("Powered By: Ramesh C Rai",JLabel.CENTER);
+		bottomText.setBackground(Color.GRAY);
+		bottomText.setForeground(Color.BLACK);
+		
+		add(numberField);
+		add(bottomText, BorderLayout.SOUTH);
+		
+		
+
+		
+		
+		GenerateNumberImpl random = new GenerateNumberImpl(MIN_NUMBER, MAX_NUMBER);
+		
+	}
+}

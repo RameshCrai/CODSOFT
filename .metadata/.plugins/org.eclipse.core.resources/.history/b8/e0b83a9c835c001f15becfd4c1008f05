@@ -1,0 +1,11 @@
+package Game;
+
+public class GenerateNumberImpl implements GenerateNumber{
+
+	@Override
+	public int generateRandom() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

@@ -1,0 +1,9 @@
+package Game;
+
+public class GameLunch {
+	public static void main(String[] args) {
+		GameUI game = new GameUI();
+	    System.out.println("hello game ");
+	}
+
+}

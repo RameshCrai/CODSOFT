@@ -1,0 +1,68 @@
+package Game;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.util.Scanner;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class GameUI extends JFrame {
+	private static final int MAX_ATTEMPTS = 3;
+	private static final Scanner scan = new Scanner(System.in);
+	private static int MIN_NUMBER = 1;
+	private static int MAX_NUMBER = 100;
+
+	private JButton guessButton, playAgain;
+	private JLabel  leftText, bottomText, attemptText, Result;
+	private JTextField gussNumber;
+	private JPanel pannelButton;
+
+	GameUI() {
+		setSize(600, 600);
+		setTitle("Number Game");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(300, 100, 800, 400);
+		setLayout(new BorderLayout());
+		
+		
+		gussNumber = new JTextField(10);
+		
+		
+		
+		guessButton = new JButton("Guss");
+		playAgain = new JButton("Play Again");
+		
+		
+
+		leftText = new JLabel("Enter a number:");
+		attemptText = new JLabel("Total Attempts");
+		bottomText = new JLabel("Powered By: Ramesh Chamling Rai",JLabel.CENTER);
+		
+		
+		
+		bottomText.setBackground(Color.GRAY);
+		bottomText.setOpaque(true);
+		bottomText.setForeground(Color.BLACK);
+		
+		pannelButton  = new JPanel();
+		pannelButton.add(guessButton);
+		pannelButton.add(playAgain);
+	
+		
+	
+		add(leftText);
+		add(gussNumber);
+		add(guessButton);
+		add(playAgain);
+		add(bottomText, BorderLayout.SOUTH);
+		
+		
+		
+		GenerateNumberImpl random = new GenerateNumberImpl(MIN_NUMBER, MAX_NUMBER);
+		
+	}
+}
