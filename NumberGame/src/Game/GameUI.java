@@ -14,6 +14,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
 
 public class GameUI extends JFrame {
 	private static final int MAX_ATTEMPTS = 5;
@@ -29,11 +30,17 @@ public class GameUI extends JFrame {
 	private int attempts;
 	private int numberToGuess;
 	private GenerateNumberImpl generateNumber;
+	
+	
+	int top = 5;
+    int left = 5;
+    int bottom = 5;
+    int right = 5;
 
 	public GameUI() {
 		setTitle("Number Guessing Game");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(300, 100, 800, 400);
+		setBounds(300, 100, 600, 450);
 		setLayout(new BorderLayout());
 
 		// Initialize components
@@ -53,11 +60,13 @@ public class GameUI extends JFrame {
 
 		welcomeText.setBackground(Color.GRAY);
 		welcomeText.setOpaque(true);
-		welcomeText.setForeground(Color.BLACK);
+		welcomeText.setForeground(Color.BLUE);
+		welcomeText.setBorder(new EmptyBorder(top, left, bottom, right));
 
 		bottomText.setBackground(Color.GRAY);
 		bottomText.setOpaque(true);
-		bottomText.setForeground(Color.BLACK);
+		bottomText.setForeground(Color.BLUE);
+		bottomText.setBorder(new EmptyBorder(top, left, bottom, right));
 
 		project1.setForeground(Color.BLUE);
 
@@ -69,13 +78,12 @@ public class GameUI extends JFrame {
 		gbc.gridx = 0;
 		gbc.gridy = 0;
 		gbc.gridwidth = 2;
-		gbc.anchor = GridBagConstraints.EAST;
+		gbc.anchor = GridBagConstraints.CENTER;
 		mainPanel.add(project1, gbc);
 
 		gbc.gridx++;
-		gbc.gridy = 1;
-		gbc.gridwidth = 2;
-		gbc.anchor = GridBagConstraints.CENTER;
+		gbc.gridy++;
+		gbc.anchor = GridBagConstraints.WEST;
 		mainPanel.add(topText, gbc);
 
 		gbc.gridy++;
@@ -88,12 +96,13 @@ public class GameUI extends JFrame {
 		mainPanel.add(instruction3, gbc);
 
 		gbc.gridy++;
-		gbc.gridwidth = 1;
-		gbc.anchor = GridBagConstraints.EAST;
+		gbc.gridx = 0;
+		gbc.anchor = GridBagConstraints.WEST;
 		mainPanel.add(leftText, gbc);
 
 		gbc.gridx = 1;
-		gbc.anchor = GridBagConstraints.CENTER;
+		gbc.gridwidth = 1;
+		gbc.anchor = GridBagConstraints.EAST;
 		mainPanel.add(guessNumber, gbc);
 
 		// Button panel
