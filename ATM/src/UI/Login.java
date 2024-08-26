@@ -47,7 +47,7 @@ public class Login extends JFrame {
 	 */
 	public Login() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 581, 418);
+		setBounds(100, 100, 688, 398);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -103,7 +103,7 @@ public class Login extends JFrame {
 			}
 		});
 		login.setFont(new Font("Tahoma", Font.BOLD, 18));
-		login.setBounds(243, 246, 126, 41);
+		login.setBounds(240, 201, 126, 41);
 		contentPane.add(login);
 	}
 

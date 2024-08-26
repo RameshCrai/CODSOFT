@@ -48,16 +48,16 @@ public class Register extends JFrame {
 	 */
 	public Register() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 551, 432);
+		setBounds(100, 100, 688, 398);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		JLabel registertop = new JLabel("Register in Bank");
+		JLabel registertop = new JLabel("Register For ATM");
 		registertop.setFont(new Font("Tahoma", Font.BOLD, 30));
-		registertop.setBounds(120, 11, 272, 42);
+		registertop.setBounds(144, 11, 272, 42);
 		contentPane.add(registertop);
 
 		JLabel fullname = new JLabel("Full Name :");
@@ -67,12 +67,12 @@ public class Register extends JFrame {
 
 		JLabel lblPhone = new JLabel("Phone :");
 		lblPhone.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblPhone.setBounds(22, 186, 107, 32);
+		lblPhone.setBounds(22, 168, 107, 32);
 		contentPane.add(lblPhone);
 
 		JLabel lblEmail = new JLabel("Email : ");
 		lblEmail.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblEmail.setBounds(22, 273, 107, 32);
+		lblEmail.setBounds(22, 231, 107, 32);
 		contentPane.add(lblEmail);
 
 		JSeparator separator = new JSeparator();
@@ -86,12 +86,12 @@ public class Register extends JFrame {
 
 		phone = new JTextField();
 		phone.setColumns(10);
-		phone.setBounds(220, 186, 307, 42);
+		phone.setBounds(220, 166, 307, 42);
 		contentPane.add(phone);
 
 		email = new JTextField();
 		email.setColumns(10);
-		email.setBounds(220, 263, 307, 42);
+		email.setBounds(220, 229, 307, 42);
 		contentPane.add(email);
 
 		JButton btnNewButton = new JButton("Submit");
@@ -121,6 +121,9 @@ public class Register extends JFrame {
 						fname.setText("");
 						email.setText("");
 						phone.setText("");
+						Login login = new Login();
+						login.setVisible(true);
+						dispose();
 						return;
 					}
 				} catch (HeadlessException | ClassNotFoundException e1) {
@@ -131,7 +134,7 @@ public class Register extends JFrame {
 			}
 		});
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 18));
-		btnNewButton.setBounds(235, 345, 118, 39);
+		btnNewButton.setBounds(329, 295, 118, 39);
 		contentPane.add(btnNewButton);
 	}
 }

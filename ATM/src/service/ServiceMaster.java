@@ -10,7 +10,9 @@ public interface ServiceMaster {
 	public User getAuthByEmail(String email) throws ClassNotFoundException;
 
 	public boolean saveAmount(Account acount) throws ClassNotFoundException;
+	
+	public boolean updateAmount(Account acount) throws ClassNotFoundException;
 
-	public boolean getAccount(int id) throws ClassNotFoundException;
+	public Account getAccount(int id) throws ClassNotFoundException;
 
 }

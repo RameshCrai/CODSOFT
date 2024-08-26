@@ -41,7 +41,7 @@ public class Atm extends JFrame {
 	public Atm() {
 		setTitle("ATM SYSTEM");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 901, 518);
+		setBounds(100, 100, 688, 398);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -58,7 +58,7 @@ public class Atm extends JFrame {
 		footer.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		footer.setHorizontalAlignment(SwingConstants.LEFT);
 		footer.setBackground(new Color(128, 128, 255));
-		footer.setBounds(2, 440, 269, 41);
+		footer.setBounds(10, 320, 269, 41);
 		contentPane.add(footer);
 		
 		JButton login = new JButton("Log-in");

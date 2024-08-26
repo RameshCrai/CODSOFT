@@ -4,6 +4,11 @@ public class Account {
 	private int accountId;
 	private double amount;
 	private int userId;
+	
+	public Account() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	public Account(int accountId, double amount, int userId) {
 		super();
 		this.accountId = accountId;
