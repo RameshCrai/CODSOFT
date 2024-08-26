@@ -79,7 +79,7 @@ public class Withdraw extends JFrame {
 		// Get the User object from AppConfig
 		user = appConfig.getUser();
 
-		JButton Addamount = new JButton("Add Amount");
+		JButton Addamount = new JButton("Deposit Amount");
 		Addamount.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				AddAmount amount = new AddAmount();
@@ -88,7 +88,7 @@ public class Withdraw extends JFrame {
 			}
 		});
 		Addamount.setFont(new Font("Tahoma", Font.BOLD, 16));
-		Addamount.setBounds(10, 11, 149, 36);
+		Addamount.setBounds(10, 11, 195, 36);
 		contentPane.add(Addamount);
 
 		amount = new JTextField();
