@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+.thints{
+	position:absolute;
+	top:-8px;
+	color:red;
+	background-color:#74fce3;
+	padding:8px;
+	border-radius:10px;
+}
+.btn-footer{
+	position:absolute;
+	right:0px;
+	color:red;
+	background-color:#05fa0d;
+	padding:8px;
+	border-radius:10px;
+}
+#footer {
+    background-color: #000;
+    color: #fff;           
+    padding: 20px;        
+    font-size: 16px;      
+    position: relative;     
+    width: 100%;            
+}
