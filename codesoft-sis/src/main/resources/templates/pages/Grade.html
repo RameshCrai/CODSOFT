@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Grade Sheet</title>
+<div th:replace="shareLink.html"></div>
+</head>
+<body>
+	<div th:replace="./layout/navbar"></div>
+	<br>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 offset-md-3">
+				<div class="card">
+					<div class="card-header">
+						<h3>GRADE SHEET</h3>
+					</div>
+					<div class="card-body">
+						<table class="table table-striped" style="width: 100%">
+							<thead>
+								<tr>
+
+									<td>S.N</td>
+									<td>Course Title</td>
+									<td>Marks</td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="course : ${markslist}">
+									<td th:text="${course.marksId}"></td>
+									<td th:text="${course.courseCode}"></td>
+									<td th:text="${course.marks}"></td>
+								</tr>
+
+								<tr>
+									<td colspan="2">Total Marks</td>
+									<td th:text="${totalSum}"></td>
+								</tr>
+								<tr>
+									<td colspan="2">Average Percentage</td>
+
+									<td th:text="${percentage} +'%'"></td>
+								</tr>
+								<tr>
+								<td colspan="2">Student Name : </td>
+								<td th:text="${student.name}"></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

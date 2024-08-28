@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Course Register !</title>
+<div th:replace="shareLink.html"></div>
+</head>
+<body>
+	<div th:replace="./layout/navbar"></div>
+	<div class="container-fluid">
+		<br>
+		<div class="row">
+			<div class="col-md-6 offset-md-3">
+				<div class="card">
+					<div class="card-header text-center">
+						<h2>Course Registration here !</h2>
+						<div id="messageHIDE" th:if="${session.mesg}"
+							th:classappend="${session.mesg.typeofMessage}" class="alert mb-2"
+							role="alert">
+							<p th:text="${session.mesg.message}"></p>
+
+						</div>
+					</div>
+					<div class="card-body">
+						<form th:action="@{/saveCourse}" method="post">
+							<div class="mb-1">
+								<label for="exampleInputPassword1" class="form-label">Title</label>
+								<input type="text" name="title" class="form-control"
+									placeholder="Title" required="required">
+							</div>
+
+							<div class="mb-1">
+								<div class="row">
+									<div class="col-md-6">
+										<label for="exampleInputEmail1" class="form-label">Course
+											Code</label> <input type="text" class="form-control"
+											name="courseCode" placeholder="Course Code"
+											required="required">
+									</div>
+									<div class="col-md-6">
+										<label for="exampleInputEmail1" class="form-label">Capacity</label>
+										<input type="number" class="form-control" name="capacity"
+											placeholder="Capacity" required="required">
+									</div>
+								</div>
+							</div>
+							<div class="mb-0">
+								<label for="exampleInputEmail1" class="form-label">Course
+									Schedule Time </label>
+							</div>
+							<div class="mb-1">
+								<div class="row">
+									<div class="col-md-6">
+										<label for="exampleInputEmail1" class="form-label">From
+											Time</label> <input type="time" class="form-control" name="fromTime"
+											placeholder="Capacity" required="required">
+									</div>
+									<div class="col-md-6">
+										<label for="exampleInputEmail1" class="form-label">To
+											Time</label> <input type="time" class="form-control" name="toTime"
+											placeholder="Capacity" required="required">
+									</div>
+								</div>
+							</div>
+							<div class="mb-1">
+								<label for="exampleInputEmail1" class="form-label">Valid
+									Date</label> <input type="date" class="form-control" name="validDate"
+									placeholder="Capacity" required="required">
+							</div>
+							<div class="mb-1">
+								<label for="exampleInputEmail1" class="form-label">Descriptioin</label>
+								<textarea type="text" class="form-control" name="description"
+									placeholder="description" required="required"></textarea>
+							</div>
+							<div class="container-fluid text-center">
+								<button type="submit" class="btn btn-primary">Submit</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<br>
+	</div>
+	<div th:replace="./layout/footer"></div>
+	<script>
+		var duration = 5000; // 5 seconds
+		var messageElement = document.getElementById('messageHIDE');
+		messageElement.style.display = 'block';
+
+		setTimeout(function() {
+			messageElement.style.display = 'none';
+		}, duration);
+	</script>
+</body>
+</html>

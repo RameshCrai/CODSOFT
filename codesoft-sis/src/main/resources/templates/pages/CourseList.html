@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Courses List</title>
+<div th:replace="shareLink.html"></div>
+</head>
+<body>
+	<div th:replace="./layout/navbar"></div>
+	<br>
+	<div class="container">
+		<div class="card">
+			<div class="card-header text-center">
+				<h1>Courses List</h1>
+			</div>
+			<div class="card-body">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>S.N</th>
+							<th>Title</th>
+							<th>Course Code</th>
+							<th>Capacity</th>
+							<th>Valid Date</th>
+							<th>From Time</th>
+							<th>To Time</th>
+							<th>Description</th>
+							<th>Apply</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="course : ${courses}">
+							<td th:text="${course.courseId}"></td>
+							<td th:text="${course.title}"></td>
+							<td th:text="${course.courseCode}"></td>
+							<td th:text="${course.capacity}"></td>
+							<td th:text="${course.validDate}"></td>
+							<td th:text="${course.fromTime}+ ' AM'">AM</td>
+							<td th:text="${course.toTime}+ ' PM'">PM</td>
+							<td th:text="${course.description}"></td>
+							<td>
+								<!-- Button trigger modal 
+								<a th:href="@{getLoginStudent}"
+								th:if="@{student == null}">Apply For Course</a> --> <a
+								th:href="@{'/getApply/' + ${course.courseCode}}">Apply</a>
+
+
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	</div>
+	<br>
+	<div th:replace="./layout/footer"></div>
+</body>
+</html>

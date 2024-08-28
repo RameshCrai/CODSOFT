@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Dashboard</title>
+<div th:replace="shareLink.html"></div>
+</head>
+<body>
+	<div th:replace="./layout/navbar"></div>
+	<div class="container-fluid">
+		<br>
+
+		<h1 class="text-center">
+			Welcome <strong th:if="${student !=null}" th:text="${student.name}"></strong>
+		</h1>
+		<button class="btn btn-primary">
+			<a th:href="@{/getAllCourses}" class="text-light">Register For
+				Course</a>
+		</button>
+		<button class="btn btn-primary">
+			<a th:href="@{/getGradesheet}" class="text-light">Grade</a>
+		</button>
+		<button type="button" class="btn btn-primary" data-bs-toggle="modal"
+			data-bs-target="#exampleModal">
+			<a style="color: white;"
+				>Add Marks</a>
+		</button>
+		<div class="contrainer">
+			<div class="card">
+				<div class="card-header text-center">
+					<h1>Course Details</h1>
+					<div id="messageHIDE" th:if="${session.mesg}"
+						th:classappend="${session.mesg.typeofMessage}" class="alert mb-2"
+						role="alert">
+						<p th:text="${session.mesg.message}"></p>
+
+					</div>
+				</div>
+				<div class="card-body">
+					<table class="table table-striped" th:if="@{courses}">
+						<thead>
+							<tr>
+								<th>S.N</th>
+								<th>Title</th>
+								<th>Course Code</th>
+								<th>Capacity</th>
+								<th>Valid Date</th>
+								<th>From Time</th>
+								<th>To Time</th>
+								<th>Description</th>
+								<th>Action</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="course : ${courses}">
+								<td th:text="${course.courseId}"></td>
+								<td th:text="${course.title}"></td>
+								<td th:text="${course.courseCode}"></td>
+								<td th:text="${course.capacity}"></td>
+								<td th:text="${course.validDate}"></td>
+								<td th:text="${course.fromTime}+ ' AM'">AM</td>
+								<td th:text="${course.toTime}+ ' PM'">PM</td>
+								<td th:text="${course.description}"></td>
+								<td>
+									<button type="button" class="btn btn-danger">
+										<a style="color: white;"
+											th:href="@{'/deleteRegisterCourse/'+${course.courseCode}}">Drop
+											Course</a>
+									</button> &nbsp;
+
+
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<br>
+	</div>
+
+
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModal" tabindex="-1"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h1 class="modal-title fs-5" id="exampleModalLabel">Add Marks</h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal"
+						aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+				<form th:action="@{/addStudentMarks}" method="post">
+							<div class="mb-1">
+								<label for="exampleInputPassword1" class="form-label">Select Subject</label>
+								<select class="form-control" name="courseCode">
+								  <option>Select Subject</option>
+								 <option th:each="course : ${courseList}" th:value="${course.title}" th:text="${course.title}"></option>
+						           
+								</select>
+							</div>
+							<div class="mb-1">
+								<label for="exampleInputPassword1" class="form-label">Marks Of Course </label>
+								<input type="number" name="marks" class="form-control"
+									placeholder="Marks of Course " required="required">
+							</div>
+							<div class="container-fluid text-center">
+								<button type="submit" class="btn btn-primary">Submit</button>
+							</div>
+						</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		var duration = 5000; // 5 seconds
+		var messageElement = document.getElementById('messageHIDE');
+		messageElement.style.display = 'block';
+
+		setTimeout(function() {
+			messageElement.style.display = 'none';
+		}, duration);
+	</script>
+</body>
+</html>
